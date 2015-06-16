@@ -29,18 +29,17 @@ class ClassLoader():
 		layout_main = Anvil.core.Layout( parent=self.window )
 
 		# boxs init
-		box_input  = Abox( name='Input', w=__size[0]-20, h=__size[1]/3-10 )
-		box_output = Abox( name='Output',  w=__size[0]-20, h=__size[1]/3-10 )
+		box_input  = Abox( name='Input', w=__size[0]/2-20, h=__size[1]/3-10 )
+		box_output = Abox( name='Output',  w=__size[0]/2-20, h=__size[1]/3-10 )
 		box_console = Abox( name='Console',  w=__size[0]-20, h=__size[1]/3-10 )
 
 		# setup content
 		self.input  = BCconverter.ui.Input( parent=box_input )
 		self.output = BCconverter.ui.Output( parent=box_output )
-		BCconverter.ui.Console( parent=box_console, ui=self )
+		self.console = BCconverter.ui.Console( parent=box_console, ui=self )
 
-		# defind layouts content
-		layout_main.add( box_input )
-		layout_main.add( box_output )
+		# define layouts content
+		layout_main.add( [box_input, box_output] )
 		layout_main.add( box_console )
 
 		self.window.show()
